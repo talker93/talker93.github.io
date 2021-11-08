@@ -7,7 +7,7 @@
     <title>WebRTC Demo</title>
     <script type="module" crossorigin src="/assets/index.3bced6af.js"></script>
     <link rel="modulepreload" href="/assets/vendor.1474e80f.js">
-    <link rel="stylesheet" href="/assets/index.d7c00bc7.css">
+    <link rel="stylesheet" href="/assets/index.94151cb3.css">
   </head>
   <body>
     <h2>1. Start your Webcam</h2>
@@ -23,6 +23,19 @@
           <label for="audioSource">Audio input source: </label><select id="audioSource"></select>
         </div>
         <div class="select">
+          <label for="audioSource">Codec selection: </label>
+          <select id="codec">
+            <!-- Codec values are matched with how they appear in the SDP.
+            For instance, opus matches opus/48000/2 in Chrome, and ISAC/16000
+            matches 16K iSAC (but not 32K iSAC). -->
+            <option value="opus">Opus</option>
+            <option value="ISAC">iSAC 16K</option>
+            <option value="G722">G722</option>
+            <option value="PCMU">PCMU</option>
+            <option value="red">RED</option>
+        </select>
+        </div>
+        <div class="select">
             <label for="videoSource">Video source: </label><select id="videoSource"></select>
         </div>
         <video id="webcamVideo" autoplay playsinline></video>
@@ -34,8 +47,6 @@
         </div>
         <video id="remoteVideo" autoplay playsinline></video>
       </span>
-
-
     </div>
 
     <button id="webcamButton">Start webcam</button>
@@ -51,6 +62,26 @@
     <h2>4. Hangup</h2>
 
     <button id="hangupButton" disabled>Hangup</button>
+    <br>
+    <br>
+
+    <table>
+      <caption>Bitrate and Packes sent per second - approximate results in browsers</caption>
+      <tr>
+          <th>Opus</th>
+          <th>iSAC 16K</th>
+          <th>G722</th>
+          <th>PCMU</th>
+          <th>Browsers Tested</th>
+      </tr>
+      <tr>
+          <td>~40 kbps / Muted : Same, ~50 Packets, Muted : Same or slight drop</td>
+          <td>~30 kbps / Muted : Same, ~33 Packets, Muted : Same or slight drop</td>
+          <td>~70 kbps / Muted : Same, ~50 Packets, Muted : Same</td>
+          <td>~70 kbps / Muted : Same, ~55 Packets, Muted : Same</td>
+          <td>Tested in Chrome, Not tested in Opera, Firefox, Safari, Edge</td>
+      </tr>
+    </table>
 
     
 
