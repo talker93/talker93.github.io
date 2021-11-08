@@ -5,8 +5,8 @@
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.17e50649.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WebRTC Demo</title>
-    <script type="module" crossorigin src="/assets/index.13eecd76.js"></script>
-    <link rel="modulepreload" href="/assets/vendor.c363cc5b.js">
+    <script type="module" crossorigin src="/assets/index.3bced6af.js"></script>
+    <link rel="modulepreload" href="/assets/vendor.1474e80f.js">
     <link rel="stylesheet" href="/assets/index.d7c00bc7.css">
   </head>
   <body>
@@ -14,10 +14,24 @@
     <div class="videos">
       <span>
         <h3>Local Stream</h3>
+        <div class="select">
+          <label for="accept">
+            <input type="checkbox" id="muteMonitor" name="accept" value="yes" checked="true">  Mute Monitoring Signal 
+         </label>
+        </div>
+        <div class="select">
+          <label for="audioSource">Audio input source: </label><select id="audioSource"></select>
+        </div>
+        <div class="select">
+            <label for="videoSource">Video source: </label><select id="videoSource"></select>
+        </div>
         <video id="webcamVideo" autoplay playsinline></video>
       </span>
       <span>
         <h3>Remote Stream</h3>
+        <div class="select">
+            <label for="audioOutput">Audio output destination: </label><select id="audioOutput"></select>
+        </div>
         <video id="remoteVideo" autoplay playsinline></video>
       </span>
 
