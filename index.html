@@ -11,6 +11,15 @@
   </head>
   <body>
     <h2>1. Start your Webcam</h2>
+    <div class="select">
+      <label for="streamMode">Streaming mode: </label>
+      <select id="streamMode">
+        <option value="Audio">Audio-Only</option>
+        <option value="Video">Video</option>
+    </select>
+    <p>"Codec" selection only works in "Audio-Only" mode.</p>
+    <p>"Local Source" selection only works in "Video" mode.</p>
+    </div>
     <div class="videos">
       <span>
         <h3>Local Stream</h3>
